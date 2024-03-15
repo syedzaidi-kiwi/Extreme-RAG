@@ -1,0 +1,19 @@
+3 Results
+We compared BitNet b1.58 to our reproduced FP16 LLaMA LLM in various sizes. To ensure a fair
+comparison, we pre-trained the models on the RedPajama dataset [ Com23 ] for 100 billion tokens.
+We evaluated the zero-shot performance on a range of language tasks, including ARC-Easy [ YBS19 ],
+ARC-Challenge [ YBS19 ], Hellaswag [ ZHB+19], Winogrande [ SBBC20 ], PIQA [ BZB+19], Open-
+bookQA [ MCKS18 ], and BoolQ [ CLC+19]. We also reported the validation perplexity on the
+WikiText2 [MXBS16] and C4 [RSR+19] datasets.
+We compared the runtime GPU memory and latency of both LLaMA LLM andBitNet b1.58 . The
+results were measured using the FasterTransformer3codebase, which is well-optimized for LLM
+inference latency on GPU devices. The 2-bit kernel from Ladder [ WMC+23] is also integrated for
+BitNet b1.58. We reported the time per output token, as it is the major cost for inference.
+Table 1 summarizes the perplexity and the cost for BitNet b1.58 andLLaMA LLM . It shows that
+BitNet b1.58 starts to match full precision LLaMA LLM at 3B model size in terms of perplexity,
+while being 2.71 times faster and using 3.55 times less GPU memory. In particular, BitNet b1.58 with
+a 3.9B model size is 2.4 times faster, consumes 3.32 times less memory, but performs significantly
+better than LLaMA LLM 3B.
+2https://github.com/ggerganov/llama.cpp
+3https://github.com/NVIDIA/FasterTransformer
+3

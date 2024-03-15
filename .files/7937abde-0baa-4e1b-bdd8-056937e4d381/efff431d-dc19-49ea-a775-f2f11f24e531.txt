@@ -1,0 +1,51 @@
+1 The Era of 1-bit LLMs
+In recent years, the field of AI has seen a rapid growth in the size and capabilities of Large Language
+Models (LLMs). These models have demonstrated remarkable performance in a wide range of natural
+language processing tasks, but their increasing size has posed challenges for deployment and raised
+concerns about their environmental and economic impact due to high energy consumption. One
+approach to address these challenges is to use post-training quantization to create low-bit models
+for inference [ XLS+23,FAHA23 ,CCKS23 ,TCS+24]. This technique reduces the precision of
+weights and activations, significantly reducing the memory and computational requirements of LLMs.
+The trend has been to move from 16 bits to lower bits, such as 4-bit variants [ FAHA23 ,LTT+23].
+However, post-training quantization is sub-optimal, even though it is widely used in industry LLMs.
+Recent work on 1-bit model architectures, such as BitNet [ WMD+23], presents a promising direction
+for reducing the cost of LLMs while maintaining their performance. Vanilla LLMs are in 16-bit
+floating values (i.e., FP16 or BF16), and the bulk of any LLMs is matrix multiplication. Therefore,
+the major computation cost comes from the floating-point addition and multiplication operations. In
+contrast, the matrix multiplication of BitNet only involves integer addition, which saves orders of
+energy cost for LLMs. As the fundamental limit to compute performance in many chips is power, the
+energy savings can also be translated into faster computation.
+In addition to computation, the process of transferring model parameters from DRAM to the memory
+of an on-chip accelerator (e.g., SRAM) can be expensive during inference. There have been attempts
+to enlarge SRAM to improve throughput, but this introduces significantly higher costs than DRAM.
+Compared to full-precision models, 1-bit LLMs have a much lower memory footprint from both a
+capacity and bandwidth standpoint. This can significantly reduce the cost and time of loading weights
+from DRAM, leading to faster and more efficient inference.
+In this work, we introduce a significant 1-bit LLM variant called BitNet b1.58 , where every parameter
+is ternary, taking on values of {-1, 0, 1}. We have added an additional value of 0 to the original 1-bit
+BitNet, resulting in 1.58 bits in the binary system. BitNet b1.58 retains all the benefits of the original
+1-bit BitNet, including its new computation paradigm, which requires almost no multiplication
+operations for matrix multiplication and can be highly optimized. Additionally, it has the same energy
+consumption as the original 1-bit BitNet and is much more efficient in terms of memory consumption,
+throughput and latency compared to FP16 LLM baselines. Furthermore, BitNet b1.58 offers two
+additional advantages. Firstly, its modeling capability is stronger due to its explicit support for feature
+filtering, made possible by the inclusion of 0 in the model weights, which can significantly improve
+the performance of 1-bit LLMs. Secondly, our experiments show that BitNet b1.58 can match full
+precision (i.e., FP16) baselines in terms of both perplexity and end-task performance, starting from a
+3B size, when using the same configuration (e.g., model size, training tokens, etc.).
+2 BitNet b1.58
+BitNet b1.58 is based on the BitNet architecture, which is a Transformer that replaces nn.Linear with
+BitLinear . It is trained from scratch, with 1.58-bit weights and 8-bit activations. Compared to the
+original BitNet, it introduces some modifications that we summarize below.
+Quantization Function. To constrain the weights to -1, 0, or +1, we adopt an absmean quantization
+function. It first scales the weight matrix by its average absolute value, and then round each value to
+the nearest integer among {-1, 0, +1}:
+fW= RoundClip(W
+γ+ϵ,−1,1), (1)
+RoundClip( x, a, b ) = max( a,min(b,round( x))), (2)
+γ=1
+nmX
+ij|Wij|. (3)
+The quantization function for activations follows the same implementation in BitNet, except that
+we do not scale the activations before the non-linear functions to the range [0, Qb]. Instead, the
+2

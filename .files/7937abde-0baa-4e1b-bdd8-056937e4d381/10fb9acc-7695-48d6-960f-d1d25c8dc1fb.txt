@@ -1,0 +1,34 @@
+Models Size Memory (GB) ↓ Latency (ms) ↓ PPL↓
+LLaMA LLM 700M 2.08 (1.00x) 1.18 (1.00x) 12.33
+BitNet b1.58 700M 0.80 (2.60x) 0.96 (1.23x) 12.87
+LLaMA LLM 1.3B 3.34 (1.00x) 1.62 (1.00x) 11.25
+BitNet b1.58 1.3B 1.14 (2.93x) 0.97 (1.67x) 11.29
+LLaMA LLM 3B 7.89 (1.00x) 5.07 (1.00x) 10.04
+BitNet b1.58 3B 2.22 (3.55x) 1.87 (2.71x) 9.91
+BitNet b1.58 3.9B 2.38 (3.32x) 2.11 (2.40x) 9.62
+Table 1: Perplexity as well as the cost of BitNet b1.58 and LLaMA LLM.
+Models Size ARCe ARCc HS BQ OQ PQ WGe Avg.
+LLaMA LLM 700M 54.7 23.0 37.0 60.0 20.2 68.9 54.8 45.5
+BitNet b1.58 700M 51.8 21.4 35.1 58.2 20.0 68.1 55.2 44.3
+LLaMA LLM 1.3B 56.9 23.5 38.5 59.1 21.6 70.0 53.9 46.2
+BitNet b1.58 1.3B 54.9 24.2 37.7 56.7 19.6 68.8 55.8 45.4
+LLaMA LLM 3B 62.1 25.6 43.3 61.8 24.6 72.1 58.2 49.7
+BitNet b1.58 3B 61.4 28.3 42.9 61.5 26.6 71.5 59.3 50.2
+BitNet b1.58 3.9B 64.2 28.7 44.2 63.5 24.2 73.2 60.5 51.2
+Table 2: Zero-shot accuracy of BitNet b1.58 and LLaMA LLM on the end tasks.
+activations are all scaled to [−Qb, Qb]per token to get rid of the zero-point quantization. This is
+more convenient and simple for both implementation and system-level optimization, while introduces
+negligible effects to the performance in our experiments.
+LLaMA-alike Components. The architecture of LLaMA [ TLI+23,TMS+23] has been the de-
+facto backbone for open-source LLMs. To embrace the open-source community, our design
+ofBitNet b1.58 adopts the LLaMA-alike components. Specifically, it uses RMSNorm [ ZS19 ],
+SwiGLU [ Sha20 ], rotary embedding [ SAL+24], and removes all biases. In this way, BitNet b1.58
+can be integrated into the popular open-source software (e.g., Huggingface, vLLM [ KLZ+23], and
+llama.cpp2) with minimal efforts.
+3 Results
+We compared BitNet b1.58 to our reproduced FP16 LLaMA LLM in various sizes. To ensure a fair
+comparison, we pre-trained the models on the RedPajama dataset [ Com23 ] for 100 billion tokens.
+We evaluated the zero-shot performance on a range of language tasks, including ARC-Easy [ YBS19 ],
+ARC-Challenge [ YBS19 ], Hellaswag [ ZHB+19], Winogrande [ SBBC20 ], PIQA [ BZB+19], Open-
+bookQA [ MCKS18 ], and BoolQ [ CLC+19]. We also reported the validation perplexity on the
+WikiText2 [MXBS16] and C4 [RSR+19] datasets.

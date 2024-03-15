@@ -1,0 +1,18 @@
+[XLS+23]Guangxuan Xiao, Ji Lin, Mickaël Seznec, Hao Wu, Julien Demouth, and Song Han.
+SmoothQuant: accurate and efficient post-training quantization for large language
+models. In International Conference on Machine Learning, ICML 2023, 23-29 July
+2023, Honolulu, Hawaii, USA , 2023.
+[YBS19] Vikas Yadav, Steven Bethard, and Mihai Surdeanu. Quick and (not so) dirty: Unsuper-
+vised selection of justification sentences for multi-hop question answering. In Kentaro
+Inui, Jing Jiang, Vincent Ng, and Xiaojun Wan, editors, EMNLP-IJCNLP , 2019.
+[ZHB+19]Rowan Zellers, Ari Holtzman, Yonatan Bisk, Ali Farhadi, and Yejin Choi. HellaSwag:
+can a machine really finish your sentence? In Proceedings of the 57th Conference of
+the Association for Computational Linguistics , pages 4791–4800, 2019.
+[ZS19] Biao Zhang and Rico Sennrich. Root mean square layer normalization. In Hanna M.
+Wallach, Hugo Larochelle, Alina Beygelzimer, Florence d’Alché-Buc, Emily B. Fox,
+and Roman Garnett, editors, Advances in Neural Information Processing Systems , pages
+12360–12371, 2019.
+[ZZL22] Yichi Zhang, Zhiru Zhang, and Lukasz Lew. PokeBNN: A binary pursuit of lightweight
+accuracy. In IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages
+12465–12475. IEEE, 2022.
+8
