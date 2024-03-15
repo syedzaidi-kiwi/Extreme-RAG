@@ -1,9 +1,9 @@
 # Extreme RAG Project
 
-![Stars](https://img.shields.io/github/stars/syedzaidi-kiwi/extreme_rag?style=social)
-![Forks](https://img.shields.io/github/forks/syedzaidi-kiwi/extreme_rag?style=social)
-![Issues](https://img.shields.io/github/issues/syedzaidi-kiwi/extreme_rag)
-![Pull Requests](https://img.shields.io/github/issues-pr/syedzaidi-kiwi/extreme_rag)
+![Stars](https://img.shields.io/github/stars/syedzaidi-kiwi/Extreme-RAG?style=social)
+![Forks](https://img.shields.io/github/forks/syedzaidi-kiwi/Extreme-RAG?style=social)
+![Issues](https://img.shields.io/github/issues/syedzaidi-kiwi/Extreme-RAG)
+![Pull Requests](https://img.shields.io/github/issues-pr/syedzaidi-kiwi/Extreme-RAG)
 ![Docker Pulls](https://img.shields.io/docker/pulls/asadnhasan/extreme_rag)
 
 Extreme RAG (Retrieval-Augmented Generation) is a cutting-edge solution designed to revolutionize information retrieval and text generation processes. By leveraging the power of the LPU (Low Precision Utility) approach, our system achieves unparalleled speed without compromising on accuracy or quality.
@@ -85,5 +85,5 @@ Want to contribute? Great! Check out our [contribution guidelines](CONTRIBUTING.
 📬 Contact
 For any questions or feedback regarding the Extreme RAG Project, please reach out:
 
-Name: Syed Asad
+Name: Syed Asad |
 Email: syed.asad@kiwitech.com
