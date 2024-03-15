@@ -78,7 +78,7 @@ docker run -p 8000:8000 \
 📈 Benchmarking
 Still to be evaluated by the AI Team at KiwiTech. 
 
-🤝 Contributing
+🤝 
 We welcome contributions! Please read our CONTRIBUTING.md for how to contribute to our project. Check out the issues for ideas on where to start.
 Want to contribute? Great! Check out our [contribution guidelines](CONTRIBUTING.md) for more information.
 
