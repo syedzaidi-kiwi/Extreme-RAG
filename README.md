@@ -12,7 +12,7 @@ Extreme RAG (Retrieval-Augmented Generation) is a cutting-edge solution designed
 
 This project is built using a robust stack of technologies:
 
-This project uses two state of art RAG Conecpts - Semantic Chunking (LlamaIndex) + Re-Ranking (Cohere Re-Ranker), which makes the quality of results even better.
+This project uses two state of art RAG Concepts - Semantic Chunking (LlamaIndex) + Re-Ranking (Cohere Re-Ranker), which makes the quality of results even better.
 
 The powerful summarization capabilities of Mixtral 8x7b adds an extra layer of perfection!
 
