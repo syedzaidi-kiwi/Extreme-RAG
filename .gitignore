@@ -26,12 +26,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Docker ignore
-docker-compose*.yml
-Dockerfile*
-*.dockerignore
-.dockerenv
-.docker/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
