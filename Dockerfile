@@ -13,14 +13,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
 
-# Define environment variables from your .env file
-ARG GOOGLE_API_KEY
-ARG GROQ_API_KEY
-ARG COHERE_API_KEY
-
-ENV GEMINI_API_KEY=${GOOGLE_API_KEY}
-ENV GROQ_API_KEY=${GROQ_API_KEY}
-ENV COHERE_API_KEY=${COHERE_API_KEY}
+# Set environment variables
+ENV GEMINI_API_KEY="AIzaSyB1SoF4qBbyJbGLY5lcdyevX9JQ97NJe7Y"
+ENV GROQ_API_KEY="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"
+ENV COHERE_API_KEY="uSmH32NPyGFVENXCzxgw4BxfL6SAl9rbEQXVdocP"
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD ["chainlit", "run", "app.py"]
